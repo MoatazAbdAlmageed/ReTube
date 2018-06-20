@@ -24,8 +24,8 @@ export class Header extends Component {
                         <a className="py-2" href="/">
                             HOME
                         </a>
-                        <a className="py-2 d-none d-md-inline-block" href="/header">Header</a>
-                        <a className="py-2 d-none d-md-inline-block" href="/footer">Footer</a>
+                        {/*   <a className="py-2 d-none d-md-inline-block" href="/header">Header</a>
+                        <a className="py-2 d-none d-md-inline-block" href="/footer">Footer</a>*/}
                         {/*<a onClick={this.navigate.bind(this)} className="py-2 d-none d-md-inline-block"*/}
                         {/*href="/footer">Back</a>*/}
 

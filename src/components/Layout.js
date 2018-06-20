@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Header from "./Header";
 import Footer from "./Footer";
-import Jumbotron from "./Jumbotron";
+import PlayerHolder from "./PlayerHolder";
 
 export class Layout extends Component {
 
@@ -25,9 +25,8 @@ export class Layout extends Component {
         return (
             <div className="Layout">
 
-
                 <Header/>
-                <Jumbotron
+                <PlayerHolder
                     changeTitle={this.changeTitle.bind(this)}
                     title={this.state.title}
                 />

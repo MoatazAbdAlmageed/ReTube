@@ -24,8 +24,8 @@ ReactDOM.render(
     <Router>
         <div>
             <Route exact path="/" component={Layout}/>
-            <Route path="/header" component={Header}/>
-            <Route path="/footer" component={Footer}/>
+            {/*<Route path="/header" component={Header}/>*/}
+            {/*<Route path="/footer" component={Footer}/>*/}
         </div>
     </Router>,
     app)
