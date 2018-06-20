@@ -1,13 +1,17 @@
 import React, {Component} from 'react';
 
 import './App.css';
-import Layout from "./components/Layout";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Youtube from "./components/Youtube";
 
 class App extends Component {
     render() {
         return (
             <div className="App">
-                <Layout/>
+                <Header/>
+                <Youtube/>
+                <Footer/>
             </div>
         );
     }

@@ -3,7 +3,7 @@ import SearchBar from "./SearchBar";
 import VideoPlayer from "./VideoPlayer";
 import VideoList from "./VideoList";
 
-export class App extends Component {
+export class Youtube extends Component {
 
     constructor(props) {
         super(props);
@@ -45,7 +45,7 @@ export class App extends Component {
     render() {
 
         return (
-            <div className="PlayerHolder">
+            <div className="Youtube">
                 <div className="container">
                     <div className="row">
                         <div className="col-md-12">
@@ -73,4 +73,4 @@ export class App extends Component {
 
 }
 
-export default App;
+export default Youtube;
