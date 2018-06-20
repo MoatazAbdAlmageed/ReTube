@@ -1,6 +1,6 @@
 # ReTube
 
-[![N|ReTube](https://files.slack.com/files-pri/T03GZ2YPA-FBAPB8WR1/youtube_mockup.png)](ReTube)
+[![N|ReTube](public/youtube_mockup.png)](ReTube)
 
 ### Installation
 
