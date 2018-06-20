@@ -19,7 +19,7 @@ export class Header extends Component {
 
             <div className="Header">
 
-                <nav className="site-header sticky-top py-1">
+                <nav className="site-header sticky-top py-1 mtz">
                     <div className="container d-flex flex-column flex-md-row justify-content-between">
                         <a className="py-2" href="/">
                             HOME

@@ -8,6 +8,9 @@ export class Layout extends Component {
 
     constructor() {
         super();
+        /*
+                this.init();
+        */
 
         this.state = {title: "PHP"} // init value
         //
@@ -19,6 +22,7 @@ export class Layout extends Component {
     changeTitle(title) {
         this.setState({title});
     }
+
 
 
     render() {
