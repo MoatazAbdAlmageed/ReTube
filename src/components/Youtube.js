@@ -8,6 +8,7 @@ export class Youtube extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            term:'nasa',
             videoList: [],
             selectedVideo:{},
         };
@@ -17,7 +18,7 @@ export class Youtube extends Component {
     componentWillMount() {
 
         /*TODO: move to hangle change function*/
-        const api = 'https://www.googleapis.com/youtube/v3/search?part=snippet&q=nasa&type=video&videoDefinition=high&key=AIzaSyAzhkrAEax-6glljYL4U1GaEOwjSyydEpk';
+        const api = 'https://www.googleapis.com/youtube/v3/search?part=snippet&q='+this.state.term+'&type=video&videoDefinition=high&key=AIzaSyAzhkrAEax-6glljYL4U1GaEOwjSyydEpk';
 
 
         fetch(api).then(
@@ -64,7 +65,7 @@ export class Youtube extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-12">
-                            <SearchBar/>
+                            <SearchBar term={this.state.term}/>
                         </div>
 
                     </div>

@@ -2,7 +2,10 @@ import React, {Component} from 'react';
 
 
 export class SearchBar extends Component {
-
+    constructor(props) {
+        super(props);
+        // this.term = this.props.term;
+    }
     render() {
         return (
 
@@ -12,6 +15,7 @@ export class SearchBar extends Component {
                                         onChange={this.handleChange.bind(this)}
                     */
                     className={'form-control'}
+                    value={this.props.term}
                     /*
                                         value={this.props.term}
                     */
