@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Header from "./Header";
 import Footer from "./Footer";
-import PlayerHolder from "./PlayerHolder";
+import App from "./App";
 
 export class Layout extends Component {
 
@@ -30,7 +30,7 @@ export class Layout extends Component {
             <div className="Layout">
 
                 <Header/>
-                <PlayerHolder
+                <App
                     changeTitle={this.changeTitle.bind(this)}
                     title={this.state.title}
                 />

@@ -3,7 +3,7 @@ import SearchBar from "./SearchBar";
 import VideoPlayer from "./VideoPlayer";
 import VideoList from "./VideoList";
 
-export class PlayerHolder extends Component {
+export class App extends Component {
 
     constructor(props) {
         super(props);
@@ -73,4 +73,4 @@ export class PlayerHolder extends Component {
 
 }
 
-export default PlayerHolder;
+export default App;
