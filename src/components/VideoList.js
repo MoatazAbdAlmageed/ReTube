@@ -13,7 +13,7 @@ export class VideoList extends Component {
             <div className="VideoList">
 
 
-                {this.props.videList.map((video, i) => {
+                {this.props.videoList.map((video, i) => {
                     return (<VideoListItem video={video} key={i}/> )
                 })}
 
