@@ -8,6 +8,21 @@ export class PlayerHolder extends Component {
     constructor(props) {
         super(props);
 
+
+        /*TODO: move to hangle change function*/
+        const api = 'https://www.googleapis.com/youtube/v3/search?part=snippet&order=viewCount&q=skateboarding+dog&type=video&videoDefinition=high&key=AIzaSyAzhkrAEax-6glljYL4U1GaEOwjSyydEpk';
+
+        const video_list = fetch(api).then(
+            function (response) {
+                return response.json();
+            }
+        ).then(function (jsonData) {
+            /*todo just get vids list */
+            console.log(jsonData.items);
+            return jsonData.items
+        });
+
+
     }
 
 
