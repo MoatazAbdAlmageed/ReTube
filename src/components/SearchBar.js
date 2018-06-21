@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {DebounceInput} from 'react-debounce-input';
 
 
 export class SearchBar extends Component {
@@ -18,7 +19,7 @@ export class SearchBar extends Component {
     }
 
     componentDidMount() {
-        this.refs.search.focus();
+        // this.refs.search.focus();
 
 
     }
@@ -29,13 +30,26 @@ export class SearchBar extends Component {
             <div className="SearchBar">
                 <h1>Search:<b> {this.props.term}</b></h1>
 
-                <input
+                <DebounceInput
+                    minLength={2}
+                    debounceTimeout={300}
+                    // onChange={event => this.setState({value: event.target.value})}
                     onChange={this.handleChange}
                     className={'form-control'}
                     ref="search"
 
                     value={this.props.term}
-                    type="text"/>
+                    type="text"
+                />
+
+
+                {/*<input*/}
+                {/*onChange={this.handleChange}*/}
+                {/*className={'form-control'}*/}
+                {/*ref="search"*/}
+
+                {/*value={this.props.term}*/}
+                {/*type="text"/>*/}
             </div>
         );
     }
