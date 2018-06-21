@@ -28,11 +28,22 @@ export class Youtube extends Component {
             term = this.state.term
         }
 
-        this.setState({term});
+        this.setState(
+            {
+                term,
+
+            }
+        );
 
 
         const api = 'https://www.googleapis.com/youtube/v3/search?part=snippet&q=' + this.state.term + '&type=video&videoDefinition=high&key=AIzaSyAzhkrAEax-6glljYL4U1GaEOwjSyydEpk';
+        this.setState(
+            {
 
+                videoList: [],
+                selectedVideo: {}
+            }
+        );
 
         fetch(api).then(
             function (response) {
@@ -78,10 +89,26 @@ export class Youtube extends Component {
     }
 
     render() {
-        if (!this.state.videoList.length) {
-            return (
-                <div className="spinner"></div>
-            );
+
+
+        var player = <div className="spinner"></div>;
+        var list = <div className="spinner"></div>;
+
+
+        /******************************************************/
+
+
+        if (this.state.videoList.length && this.state.selectedVideo) {
+
+            player = <VideoPlayer video={this.state.selectedVideo}/>
+
+            list = <VideoList
+                setSelectedVideo={this.setSelectedVideo}
+                videoList={this.state.videoList}/>
+
+        }
+        else {
+
         }
         return (
             <div className="Youtube">
@@ -99,13 +126,13 @@ export class Youtube extends Component {
 
                     <div className="row">
                         <div className="col-md-9">
-                            <VideoPlayer video={this.state.selectedVideo}/>
+                            {player}
 
                         </div>
                         <div className="col-md-3">
-                            <VideoList
-                                setSelectedVideo={this.setSelectedVideo}
-                                videoList={this.state.videoList}/>
+
+                            {list}
+
 
                         </div>
                     </div>
