@@ -6,58 +6,73 @@ import VideoList from "./VideoList";
 export class Youtube extends Component {
 
     constructor(props) {
+
         super(props);
+        this.handleChange = this.handleChange.bind(this)
         this.state = {
-            term:'nasa',
+            term: '',
             videoList: [],
-            selectedVideo:{},
+            selectedVideo: {},
         };
 
 
     }
-    componentWillMount() {
 
-        /*TODO: move to hangle change function*/
-        const api = 'https://www.googleapis.com/youtube/v3/search?part=snippet&q='+this.state.term+'&type=video&videoDefinition=high&key=AIzaSyAzhkrAEax-6glljYL4U1GaEOwjSyydEpk';
+
+    fetchYoutubeVids(term) {
+
+
+        if (!term) {
+            term = this.state.term
+        }
+
+        this.setState({term});
+
+
+        const api = 'https://www.googleapis.com/youtube/v3/search?part=snippet&q=' + this.state.term + '&type=video&videoDefinition=high&key=AIzaSyAzhkrAEax-6glljYL4U1GaEOwjSyydEpk';
 
 
         fetch(api).then(
             function (response) {
                 return response.json();
             }
-        ).then( (jsonData) =>{
-            if (jsonData.items && jsonData.items.length){
+        ).then((jsonData) => {
+            if (jsonData.items && jsonData.items.length) {
+                var items = jsonData.items;
+                console.log(this.state);
+                console.log('############ First item ');
+                console.log("https://www.youtube.com/embed/" + jsonData.items[0].id.videoId);
                 this.setState(
                     {
-                    videoList: jsonData.items,
-                    selectedVideo: jsonData.items[0]
-                }
-            );
+                        videoList: items,
+                        selectedVideo: items[0]
+                    }
+                )
+                return items
+
             }
         });
 
+
     }
 
-    handleChange(e) {
-        /*let term = e.target.value;
-        this.props.changeTitle(term);
-        this.video = term;
-        debugger
-        var element = document.getElementById('player');
-        this.loadClientWhenGapiReady(null, term);
-        if (element) {
 
-            element.src = 'https://www.youtube.com/embed/' + this.video + '?enablejsapi=1&origin=http%3A%2F%2Flocalhost%3A3000&widgetid=1';
-
-        }*/
+    componentDidMount() {
+        this.fetchYoutubeVids();
 
 
     }
+
+    handleChange(term) {
+        this.setState({term: term});
+        this.fetchYoutubeVids(term);
+    }
+
 
     render() {
         if (!this.state.videoList.length) {
             return (
-                <p>Loading</p>
+                <h1>Loading ......... </h1>
             );
         }
         return (
@@ -65,7 +80,10 @@ export class Youtube extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-12">
-                            <SearchBar term={this.state.term}/>
+                            <SearchBar
+                                OnUserSearch={this.handleChange}
+                                term={this.state.term}
+                            />
                         </div>
 
                     </div>

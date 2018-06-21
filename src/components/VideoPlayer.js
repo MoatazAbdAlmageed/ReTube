@@ -6,9 +6,10 @@ export class VideoPlayer extends Component {
         super(props);
         this.title = this.props.video.snippet.title;
         this.description = this.props.video.snippet.description;
-        this.src = "https://www.youtube.com/embed/"+this.props.video.id.videoId;
-debugger
+        this.src = "https://www.youtube.com/embed/" + this.props.video.id.videoId;
+
     }
+
     render() {
         return (
 
@@ -19,6 +20,7 @@ debugger
 
                     <iframe height="315" width="100%" src={this.src}
                             frameBorder="0"
+                            title={this.title}
                             allow="autoplay; encrypted-media" allowFullScreen></iframe>
 
 

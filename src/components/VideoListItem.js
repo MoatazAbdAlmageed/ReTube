@@ -12,8 +12,8 @@ export class VideoListItem extends Component {
         return (
 
             <div className="VideoListItem">
-                    <a href="#"><img src={this.src} alt={this.title}/>
-                    </a>
+                <a><img src={this.src} alt={this.title}/>
+                </a>
             </div>
         );
     }
