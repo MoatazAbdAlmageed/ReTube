@@ -28,9 +28,9 @@ $ yarn start
 
 6 - :heavy_check_mark:  Pass first video from App to VideoPlayer, first video in the list should be displayed in the player
 
-7 -Pass search term from SearchBar to App and use it to trigger a new search,as user types, video list and video player should be updated
+7 -:heavy_check_mark: Pass search term from SearchBar to App and use it to trigger a new search,as user types, video list and video player should be updated
 
-8 -Pass selected video from VideoListItem to VideoList to App to VideoPlayer, as user selects a video, it is displayed inside the video player
+8 -:heavy_check_mark: Pass selected video from VideoListItem to VideoList to App to VideoPlayer, as user selects a video, it is displayed inside the video player
 
 9 - :heavy_check_mark:  import bootstrap css framework inside main index.html,make use of botstrap classes to improve display to match mockup as much as possible
 

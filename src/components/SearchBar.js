@@ -2,13 +2,13 @@ import React, {Component} from 'react';
 
 
 export class SearchBar extends Component {
-    // constructor(props) {
-    //     super(props);
-    //     // this.term = this.props.term;
-    //     /*
-    //             this.handleChange = this.props.handleChange.bind(this)
-    //     */
-    // }
+    constructor(props) {
+        super(props);
+        // this.term = this.props.term;
+        /*
+                this.handleChange = this.props.handleChange.bind(this)
+        */
+    }
 
 
     handleChange = (e) => {

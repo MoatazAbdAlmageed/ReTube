@@ -2,18 +2,34 @@ import React, {Component} from 'react';
 
 
 export class VideoListItem extends Component {
+
+
     constructor(props) {
-        super(props);
-        this.src = this.props.video.snippet.thumbnails.medium.url;
-        this.title = this.props.video.snippet.title;
+        super(props)
+        this.setSelectedVideo = this.setSelectedVideo.bind(this)
+
+    }
+
+    setSelectedVideo() {
+
+        this.props.setSelectedVideo(this.video)
+
+
     }
 
     render() {
+
+        this.src = this.props.video.snippet.thumbnails.medium.url;
+        this.title = this.props.video.snippet.title;
+        this.id = this.props.video.id.videoId;
+        this.video = this.props.video;
+
         return (
 
             <div className="VideoListItem">
-                <a><img src={this.src} alt={this.title}/>
-                </a>
+                <img
+                    onClick={this.setSelectedVideo}
+                    src={this.src} alt={this.title}/>
             </div>
         );
     }

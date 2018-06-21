@@ -9,6 +9,8 @@ export class Youtube extends Component {
 
         super(props);
         this.handleChange = this.handleChange.bind(this)
+        this.setSelectedVideo = this.setSelectedVideo.bind(this)
+
         this.state = {
             term: '',
             videoList: [],
@@ -68,11 +70,17 @@ export class Youtube extends Component {
         this.fetchYoutubeVids(term);
     }
 
+    setSelectedVideo(selectedVideo) {
+        this.setState({
+            selectedVideo
+        })
+
+    }
 
     render() {
         if (!this.state.videoList.length) {
             return (
-                <h1>Loading ......... </h1>
+                <div className="spinner"></div>
             );
         }
         return (
@@ -95,7 +103,9 @@ export class Youtube extends Component {
 
                         </div>
                         <div className="col-md-3">
-                            <VideoList videoList={this.state.videoList}/>
+                            <VideoList
+                                setSelectedVideo={this.setSelectedVideo}
+                                videoList={this.state.videoList}/>
 
                         </div>
                     </div>

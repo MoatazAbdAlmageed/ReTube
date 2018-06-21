@@ -4,12 +4,34 @@ import VideoListItem from "./VideoListItem";
 
 export class VideoList extends Component {
 
+    constructor(props) {
+        super(props)
+        this.setSelectedVideo = this.setSelectedVideo.bind(this)
+
+
+    }
+
+    //
+    // handleClick = (e) => {
+    //     let term = e.target.value;
+    //     this.props.setSelectedVideo(term);
+    //
+    //
+    // }
+    //
+    setSelectedVideo(selectedVideo) {
+
+        this.props.setSelectedVideo(selectedVideo)
+    }
+
     render() {
         return (
             <div className="VideoList">
 
                 {this.props.videoList.map((video, i) => {
-                    return (<VideoListItem video={video} key={i}/>)
+                    return (<VideoListItem
+                        setSelectedVideo={this.setSelectedVideo}
+                        video={video} key={i}/>)
                 })}
 
 
