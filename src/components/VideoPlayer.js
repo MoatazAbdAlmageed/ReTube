@@ -2,20 +2,16 @@ import React, {Component} from 'react';
 
 
 export class VideoPlayer extends Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.title = this.props.video.snippet.title;
-    //     this.description = this.props.video.snippet.description;
-    //     this.src = "https://www.youtube.com/embed/" + this.props.video.id.videoId;
-    //
-    // }
+    constructor(props) {
+        super(props);
+    }
 
     render() {
-
         this.title = this.props.video.snippet.title;
         this.description = this.props.video.snippet.description;
         this.src = "https://www.youtube.com/embed/" + this.props.video.id.videoId;
 
+        debugger
         return (
 
             <div className="VideoPlayer">

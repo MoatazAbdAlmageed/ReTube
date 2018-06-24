@@ -11,11 +11,9 @@ export class VideoListItem extends Component {
     }
 
     setSelectedVideo() {
-
         this.props.setSelectedVideo(this.video)
-
-
     }
+
 
     render() {
 
@@ -23,13 +21,14 @@ export class VideoListItem extends Component {
         this.title = this.props.video.snippet.title;
         this.id = this.props.video.id.videoId;
         this.video = this.props.video;
-
         return (
 
             <div className="VideoListItem">
                 <img
                     onClick={this.setSelectedVideo}
                     src={this.src} alt={this.title}/>
+                <p>{this.title}</p>
+                <hr/>
             </div>
         );
     }

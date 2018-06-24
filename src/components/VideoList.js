@@ -11,14 +11,6 @@ export class VideoList extends Component {
 
     }
 
-    //
-    // handleClick = (e) => {
-    //     let term = e.target.value;
-    //     this.props.setSelectedVideo(term);
-    //
-    //
-    // }
-    //
     setSelectedVideo(selectedVideo) {
 
         this.props.setSelectedVideo(selectedVideo)

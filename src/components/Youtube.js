@@ -36,7 +36,7 @@ export class Youtube extends Component {
         );
 
 
-        const api = 'https://www.googleapis.com/youtube/v3/search?part=snippet&q=' + this.state.term + '&type=video&videoDefinition=high&key=AIzaSyAzhkrAEax-6glljYL4U1GaEOwjSyydEpk';
+        const api = 'https://www.googleapis.com/youtube/v3/search?part=snippet&q=' + this.state.term + '&type=video&key=AIzaSyAzhkrAEax-6glljYL4U1GaEOwjSyydEpk';
         this.setState(
             {
 
@@ -70,7 +70,11 @@ export class Youtube extends Component {
     }
 
 
-    componentDidMount() {
+    componentWillMount() {
+
+        this.player = <div className="spinner"></div>;
+        this.list = <div className="spinner"></div>;
+
         this.fetchYoutubeVids();
 
 
@@ -91,18 +95,15 @@ export class Youtube extends Component {
     render() {
 
 
-        var player = <div className="spinner"></div>;
-        var list = <div className="spinner"></div>;
-
 
         /******************************************************/
 
 
         if (this.state.videoList.length && this.state.selectedVideo) {
 
-            player = <VideoPlayer video={this.state.selectedVideo}/>
+            this.player = <VideoPlayer video={this.state.selectedVideo}/>
 
-            list = <VideoList
+            this.list = <VideoList
                 setSelectedVideo={this.setSelectedVideo}
                 videoList={this.state.videoList}/>
 
@@ -126,12 +127,12 @@ export class Youtube extends Component {
 
                     <div className="row">
                         <div className="col-md-9">
-                            {player}
+                            {this.player}
 
                         </div>
                         <div className="col-md-3">
 
-                            {list}
+                            {this.list}
 
 
                         </div>

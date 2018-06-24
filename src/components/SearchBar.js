@@ -5,10 +5,6 @@ import {DebounceInput} from 'react-debounce-input';
 export class SearchBar extends Component {
     constructor(props) {
         super(props);
-        // this.term = this.props.term;
-        /*
-                this.handleChange = this.props.handleChange.bind(this)
-        */
     }
 
 
@@ -19,20 +15,16 @@ export class SearchBar extends Component {
     }
 
     componentDidMount() {
-        // this.refs.search.focus();
-
-
     }
 
     render() {
         return (
 
             <div className="SearchBar">
-                <h1>Search:<b> {this.props.term}</b></h1>
-
+                <h1>Search:<b className={'badge'}> {this.props.term}</b></h1>
                 <DebounceInput
                     minLength={2}
-                    debounceTimeout={300}
+                    debounceTimeout={600}
                     // onChange={event => this.setState({value: event.target.value})}
                     onChange={this.handleChange}
                     className={'form-control'}
@@ -41,13 +33,10 @@ export class SearchBar extends Component {
                     value={this.props.term}
                     type="text"
                 />
-
-
                 {/*<input*/}
                 {/*onChange={this.handleChange}*/}
                 {/*className={'form-control'}*/}
                 {/*ref="search"*/}
-
                 {/*value={this.props.term}*/}
                 {/*type="text"/>*/}
             </div>
