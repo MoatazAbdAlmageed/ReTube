@@ -13,6 +13,11 @@ export class SearchBar extends Component {
         this.props.OnUserSearch(term);
 
     }
+    hangleType = (e) => {
+        let type = e.target.value;
+        this.props.changeType(type);
+
+    }
 
     componentDidMount() {
     }
@@ -21,7 +26,7 @@ export class SearchBar extends Component {
         return (
 
             <div className="SearchBar">
-                <h1>Search:<b className={'badge'}> {this.props.term}</b></h1>
+                <h1>Search: {this.props.term}- <b className={'badge'}>{this.props.type}</b></h1>
                 <DebounceInput
                     minLength={2}
                     debounceTimeout={600}
@@ -33,6 +38,13 @@ export class SearchBar extends Component {
                     value={this.props.term}
                     type="text"
                 />
+
+
+                <input onChange={this.hangleType} type="radio" name="type" value="video"
+                       checked={this.props.type == 'video'}/> video
+                <input onChange={this.hangleType} type="radio" name="type" value="playlist"
+                       checked={this.props.type == 'playlist'}/> playlist
+
                 {/*<input*/}
                 {/*onChange={this.handleChange}*/}
                 {/*className={'form-control'}*/}

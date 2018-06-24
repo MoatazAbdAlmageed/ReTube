@@ -7,11 +7,13 @@ export class VideoPlayer extends Component {
     }
 
     render() {
-        this.title = this.props.video.snippet.title;
-        this.description = this.props.video.snippet.description;
-        this.src = "https://www.youtube.com/embed/" + this.props.video.id.videoId;
 
-        debugger
+        if (this.props.video && this.props.video.snippet) {
+            this.title = this.props.video.snippet.title;
+            this.description = this.props.video.snippet.description;
+            this.src = "https://www.youtube.com/embed/" + this.props.video.id.videoId;
+        }
+
         return (
 
             <div className="VideoPlayer">
@@ -30,7 +32,8 @@ export class VideoPlayer extends Component {
                     </div>
                 </div>
             </div>
-        );
+        )
+            ;
     }
 }
 

@@ -9,10 +9,12 @@ export class Youtube extends Component {
 
         super(props);
         this.handleChange = this.handleChange.bind(this)
+        this.handleTypeChange = this.handleTypeChange.bind(this)
         this.setSelectedVideo = this.setSelectedVideo.bind(this)
 
         this.state = {
             term: '',
+            type: 'video', // || playlis
             videoList: [],
             selectedVideo: {},
         };
@@ -21,29 +23,27 @@ export class Youtube extends Component {
     }
 
 
-    fetchYoutubeVids(term) {
-
+    fetchYoutubeVids(term = this.state.term, type = this.state.type) {
 
         if (!term) {
             term = this.state.term
         }
 
+        if (!type) {
+            type = this.state.type
+        }
+
         this.setState(
             {
                 term,
+                type
 
             }
         );
 
 
-        const api = 'https://www.googleapis.com/youtube/v3/search?part=snippet&q=' + this.state.term + '&type=video&key=AIzaSyAzhkrAEax-6glljYL4U1GaEOwjSyydEpk';
-        this.setState(
-            {
+        const api = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${this.state.term}&type=${this.state.type}&key=AIzaSyAzhkrAEax-6glljYL4U1GaEOwjSyydEpk`;
 
-                videoList: [],
-                selectedVideo: {}
-            }
-        );
 
         fetch(api).then(
             function (response) {
@@ -51,17 +51,17 @@ export class Youtube extends Component {
             }
         ).then((jsonData) => {
             if (jsonData.items && jsonData.items.length) {
+
                 var items = jsonData.items;
-                console.log(this.state);
                 console.log('############ First item ');
-                console.log("https://www.youtube.com/embed/" + jsonData.items[0].id.videoId);
+                console.log("https://www.youtube.com/embed/" + items[0].id.videoId);
                 this.setState(
                     {
                         videoList: items,
                         selectedVideo: items[0]
                     }
                 )
-                return items
+
 
             }
         });
@@ -81,14 +81,33 @@ export class Youtube extends Component {
     }
 
     handleChange(term) {
-        this.setState({term: term});
         this.fetchYoutubeVids(term);
     }
 
+    handleTypeChange(type) {
+        if (type) {
+            this.setState({type})
+        }
+
+        this.fetchYoutubeVids(undefined, type);
+
+
+    }
+
+
     setSelectedVideo(selectedVideo) {
-        this.setState({
-            selectedVideo
-        })
+
+        if (this.state.type == "video") {
+            this.setState({
+                selectedVideo
+            })
+        }
+        else {
+            console.log(selectedVideo);
+            this.setState({
+                selectedVideo: {}
+            })
+        }
 
     }
 
@@ -118,7 +137,9 @@ export class Youtube extends Component {
                         <div className="col-md-12">
                             <SearchBar
                                 OnUserSearch={this.handleChange}
+                                changeType={this.handleTypeChange}
                                 term={this.state.term}
+                                type={this.state.type}
                             />
                         </div>
 
