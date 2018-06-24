@@ -11,9 +11,9 @@ export class Youtube extends Component {
         this.handleChange = this.handleChange.bind(this)
         this.handleTypeChange = this.handleTypeChange.bind(this)
         this.setSelectedVideo = this.setSelectedVideo.bind(this)
-
+        this.spinner = <div className="spinner"></div>;
         this.state = {
-            term: '',
+            term: 'ReactJs',
             type: 'video', // || playlis
             videoList: [],
             selectedVideo: {},
@@ -70,14 +70,10 @@ export class Youtube extends Component {
     }
 
 
-    componentWillMount() {
-
-        this.player = <div className="spinner"></div>;
-        this.list = <div className="spinner"></div>;
-
+    componentDidMount() {
+        this.player = this.spinner;
+        this.list = this.spinner;
         this.fetchYoutubeVids();
-
-
     }
 
     handleChange(term) {
@@ -118,18 +114,18 @@ export class Youtube extends Component {
         /******************************************************/
 
 
-        if (this.state.videoList.length && this.state.selectedVideo) {
+        if (this.state.selectedVideo) {
 
             this.player = <VideoPlayer video={this.state.selectedVideo}/>
+        }
 
+        if (this.state.videoList.length) {
             this.list = <VideoList
                 setSelectedVideo={this.setSelectedVideo}
                 videoList={this.state.videoList}/>
-
         }
-        else {
 
-        }
+
         return (
             <div className="Youtube">
                 <div className="container">

@@ -26,7 +26,7 @@ export class SearchBar extends Component {
         return (
 
             <div className="SearchBar">
-                <h1>Search: {this.props.term}- <b className={'badge'}>{this.props.type}</b></h1>
+                <h1>Search: {this.props.term}{/*- <b className={'badge'}>{this.props.type}</b>*/}</h1>
                 <DebounceInput
                     minLength={2}
                     debounceTimeout={600}
