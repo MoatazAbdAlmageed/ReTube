@@ -2,35 +2,30 @@ import React, {Component} from 'react';
 
 
 export class VideoPlayer extends Component {
-
-
-    componentWillReceiveProps() {
-
-
+    constructor(props) {
+        super(props)
     }
+
 
     render() {
 
-        if (this.props.video && this.props.video.snippet) {
-            this.title = this.props.video.snippet.title;
-            this.description = this.props.video.snippet.description;
-            this.src = "https://www.youtube.com/embed/" + this.props.video.id.videoId;
-        }
+        const title = this.props.video.snippet.title;
+        const description = this.props.video.snippet.description;
+        const src = "https://www.youtube.com/embed/" + this.props.video.id.videoId;
+
         return (
 
             <div className="VideoPlayer">
 
                 <div className="card">
-
-
-                    <iframe height="315" width="100%" src={this.src}
+                    <iframe height="315" width="100%" src={src}
                             frameBorder="0"
-                            title={this.title}
+                            title={title}
                             allow="autoplay; encrypted-media" allowFullScreen></iframe>
 
                     <div className="card-body">
-                        <h2 className="card-term">{this.title}</h2>
-                        <p className="card-text">{this.description}</p>
+                        <h2 className="card-term">{title}</h2>
+                        <p className="card-text">{description}</p>
                     </div>
                 </div>
             </div>
