@@ -22,6 +22,13 @@ export class Youtube extends Component {
 
     fetchYoutubeVids(term = this.state.term, type = this.state.type) {
 
+
+        this.setState({
+            selectedVideo: null,
+            videoList: [],
+        })
+
+
         if (!term) {
             term = this.state.term
         }
@@ -129,16 +136,17 @@ export class Youtube extends Component {
                     <div className="row">
                         <div className="col-md-9">
                             {
-                                this.state.selectedVideo && <VideoPlayer video={this.state.selectedVideo}/>
+                                this.state.selectedVideo ? <VideoPlayer video={this.state.selectedVideo}/> :
+                                    this.spinner
                             }
 
                         </div>
                         <div className="col-md-3">
 
                             {
-                                this.state.videoList.length && <VideoList
+                                this.state.videoList.length ? <VideoList
                                     setSelectedVideo={this.setSelectedVideo}
-                                    videoList={this.state.videoList}/>
+                                    videoList={this.state.videoList}/> : this.spinner
                             }
 
 
