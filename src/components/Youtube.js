@@ -31,13 +31,23 @@ export class Youtube extends Component {
             .then((jsonData) => {
                     if (jsonData.items && jsonData.items.length) {
                         var items = jsonData.items;
-                        this.setState(
-                            {
-                                videoList: items,
-                                selectedVideo: items[0]
-                            }
-                        )
+                        if (this.state.type == 'video') {
+                            this.setState(
+                                {
+                                    videoList: items,
+                                    selectedVideo: items[0]
+                                }
+                            )
+                        }
 
+                        else {
+                            this.setState(
+                                {
+                                    videoList: items,
+                                    selectedVideo: null
+                                }
+                            )
+                        }
                     }
                     else {
                         alert("No Items found ")
