@@ -4,16 +4,20 @@ import React, {Component} from 'react';
 export class VideoListItem extends Component {
 
 
-    constructor(props) {
-        super(props)
-        this.setSelectedVideo = this.setSelectedVideo.bind(this)
-
-    }
-
     setSelectedVideo() {
         this.props.setSelectedVideo(this.video)
     }
 
+
+    componentDidMount() {
+        this.setSelectedVideo = this.setSelectedVideo.bind(this)
+
+    }
+
+
+    componentWillReceiveProps() {
+
+    }
 
     render() {
 

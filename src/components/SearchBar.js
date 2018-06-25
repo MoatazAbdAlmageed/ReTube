@@ -3,9 +3,6 @@ import {DebounceInput} from 'react-debounce-input';
 
 
 export class SearchBar extends Component {
-    constructor(props) {
-        super(props);
-    }
 
 
     handleChange = (e) => {
@@ -28,6 +25,7 @@ export class SearchBar extends Component {
             <div className="SearchBar">
                 <h1>Search: {this.props.term}{/*- <b className={'badge'}>{this.props.type}</b>*/}</h1>
                 <DebounceInput
+
                     minLength={2}
                     debounceTimeout={600}
                     // onChange={event => this.setState({value: event.target.value})}

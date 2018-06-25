@@ -8,10 +8,7 @@ export class Youtube extends Component {
     constructor(props) {
 
         super(props);
-        this.handleChange = this.handleChange.bind(this)
-        this.handleTypeChange = this.handleTypeChange.bind(this)
-        this.setSelectedVideo = this.setSelectedVideo.bind(this)
-        this.spinner = <div className="spinner"></div>;
+
         this.state = {
             term: 'ReactJs',
             type: 'video', // || playlis
@@ -71,8 +68,11 @@ export class Youtube extends Component {
 
 
     componentDidMount() {
-        this.player = this.spinner;
-        this.list = this.spinner;
+        this.spinner = <div className="spinner"></div>;
+        this.handleChange = this.handleChange.bind(this)
+        this.handleTypeChange = this.handleTypeChange.bind(this)
+        this.setSelectedVideo = this.setSelectedVideo.bind(this)
+
         this.fetchYoutubeVids();
     }
 
@@ -110,22 +110,6 @@ export class Youtube extends Component {
     render() {
 
 
-
-        /******************************************************/
-
-
-        if (this.state.selectedVideo) {
-
-            this.player = <VideoPlayer video={this.state.selectedVideo}/>
-        }
-
-        if (this.state.videoList.length) {
-            this.list = <VideoList
-                setSelectedVideo={this.setSelectedVideo}
-                videoList={this.state.videoList}/>
-        }
-
-
         return (
             <div className="Youtube">
                 <div className="container">
@@ -144,12 +128,18 @@ export class Youtube extends Component {
 
                     <div className="row">
                         <div className="col-md-9">
-                            {this.player}
+                            {
+                                this.state.selectedVideo && <VideoPlayer video={this.state.selectedVideo}/>
+                            }
 
                         </div>
                         <div className="col-md-3">
 
-                            {this.list}
+                            {
+                                this.state.videoList.length && <VideoList
+                                    setSelectedVideo={this.setSelectedVideo}
+                                    videoList={this.state.videoList}/>
+                            }
 
 
                         </div>

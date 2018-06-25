@@ -2,8 +2,11 @@ import React, {Component} from 'react';
 
 
 export class VideoPlayer extends Component {
-    constructor(props) {
-        super(props);
+
+
+    componentWillReceiveProps() {
+
+
     }
 
     render() {
@@ -13,7 +16,6 @@ export class VideoPlayer extends Component {
             this.description = this.props.video.snippet.description;
             this.src = "https://www.youtube.com/embed/" + this.props.video.id.videoId;
         }
-
         return (
 
             <div className="VideoPlayer">
