@@ -6,7 +6,7 @@
 
 ### Demo
 
-http://vigilant-wescoff-ff7d34.bitballoon.com/
+http://vigorous-jang-f322c1.bitballoon.com/
 ### Installation
 
 
