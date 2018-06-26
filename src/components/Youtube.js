@@ -64,12 +64,17 @@ export class Youtube extends Component {
         this.fetchYoutubeVids();
     }
 
-    handleChange = (term) => {
+    handleChange = (e) => {
+
+        const term = e.target.value;
         this.setState({term})
         this.fetchYoutubeVids(term);
     }
 
-    handleTypeChange = (type) => {
+    handleTypeChange = (e) => {
+
+        const type = e.target.value;
+
         this.setState({type})
         this.fetchYoutubeVids(undefined, type);
 
@@ -78,6 +83,7 @@ export class Youtube extends Component {
 
 
     setSelectedVideo = (selectedVideo) => {
+
         if (this.state.type == "video") {
             this.setState({
                 selectedVideo

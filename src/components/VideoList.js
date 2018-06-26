@@ -1,31 +1,19 @@
-import React, {Component} from 'react';
+import React from 'react';
 import VideoListItem from "./VideoListItem";
 
-
-export class VideoList extends Component {
-    constructor(props) {
-        super(props)
-
-    }
-
-    setSelectedVideo = (selectedVideo) => {
-        this.props.setSelectedVideo(selectedVideo)
-
-    }
-
-    render() {
-        return (
-            <div className="VideoList">
-                {this.props.videoList.map((video, i) => {
-                    return (<VideoListItem
-                        setSelectedVideo={this.setSelectedVideo}
-                        video={video} key={i}/>)
-                })}
+function VideoList(props) {
+    return (
+        <div className="VideoList">
+            {props.videoList.map((video, i) => {
+                return (<VideoListItem
+                    setSelectedVideo={props.setSelectedVideo}
+                    video={video} key={i}/>)
+            })}
 
 
-            </div>
-        );
-    }
+        </div>
+    );
+
 }
 
 export default VideoList;

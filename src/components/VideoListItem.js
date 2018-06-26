@@ -1,42 +1,30 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 
-export class VideoListItem extends Component {
-    constructor(props) {
-        super(props)
-    }
+function VideoListItem(props) {
+    const url = props.video.snippet.thumbnails.medium.url;
+    const title = props.video.snippet.title;
+    const videoId = props.video.id.videoId;
+    let styles = {}
 
-    setSelectedVideo = () => {
-        if (this.props.video && this.props.video.id.videoId) {
-            this.props.setSelectedVideo(this.props.video)
+    /*if it is single video not playlist change style */
+    if (videoId) {
+        styles = {
+            "cursor": "pointer",
         }
     }
+    return (
 
-    render() {
-        const url = this.props.video.snippet.thumbnails.medium.url;
-        const title = this.props.video.snippet.title;
-        const id = this.props.video.id.videoId;
-        let styles = {}
+        <div className="VideoListItem" style={styles}>
+            <img
 
-        /*if it is single video not playlist change style */
-        if (id) {
-            styles = {
-                "cursor": "pointer",
-            }
-        }
-        return (
-
-            <div className="VideoListItem" style={styles}>
-                <img
-
-                    onClick={this.setSelectedVideo}
-                    src={url}
-                    alt={title}/>
-                <p>{title}</p>
-                <hr/>
-            </div>
-        );
-    }
+                onClick={props.setSelectedVide}
+                src={url}
+                alt={title}/>
+            <p>{title}</p>
+            <hr/>
+        </div>
+    );
 }
 
 export default VideoListItem;
