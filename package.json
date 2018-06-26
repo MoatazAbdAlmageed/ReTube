@@ -8,9 +8,11 @@
     "jquery": "^1.9.1",
     "popper.js": "^1.14.3",
     "react": "^16.4.1",
+    "react-alert": "^4.0.4",
     "react-debounce-input": "^3.2.0",
     "react-dom": "^16.4.1",
-    "react-scripts": "1.1.4"
+    "react-scripts": "1.1.4",
+    "react-transition-group": "^2.3.1"
   },
   "scripts": {
     "start": "react-scripts start",

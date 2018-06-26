@@ -1,12 +1,13 @@
 import React from 'react';
 import VideoListItem from "./VideoListItem";
 
-function VideoList(props) {
+
+const VideoList = ({videoList, setSelectedVideo}) => {
     return (
         <div className="VideoList">
-            {props.videoList.map((video, i) => {
+            {videoList.map((video, i) => {
                 return (<VideoListItem
-                    setSelectedVideo={props.setSelectedVideo}
+                    setSelectedVideo={setSelectedVideo}
                     video={video} key={i}/>)
             })}
 

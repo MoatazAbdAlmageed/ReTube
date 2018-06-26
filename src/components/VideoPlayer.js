@@ -1,12 +1,11 @@
 import React from 'react';
 
 
-function VideoPlayer(props) {
+const VideoPlayer = ({video}) => {
 
-    const title = props.video.snippet.title;
-    const description = props.video.snippet.description;
-    const src = "https://www.youtube.com/embed/" + props.video.id.videoId;
-
+    const title = video.snippet.title;
+    const description = video.snippet.description;
+    const src = "https://www.youtube.com/embed/" + video.id.videoId;
 
     return (
 

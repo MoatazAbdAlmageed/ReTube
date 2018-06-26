@@ -31,23 +31,14 @@ export class Youtube extends Component {
             .then((jsonData) => {
                     if (jsonData.items && jsonData.items.length) {
                         var items = jsonData.items;
-                        if (this.state.type == 'video') {
-                            this.setState(
-                                {
-                                    videoList: items,
-                                    selectedVideo: items[0]
-                                }
-                            )
-                        }
 
-                        else {
-                            this.setState(
-                                {
-                                    videoList: items,
-                                    selectedVideo: null
-                                }
-                            )
-                        }
+                        this.setState(
+                            {
+                                videoList: items,
+                                selectedVideo: type === 'video' ? items[0] : null
+
+                            }
+                        )
                     }
                     else {
                         alert("No Items found ")
@@ -65,16 +56,13 @@ export class Youtube extends Component {
     }
 
     handleChange = (e) => {
-
         const term = e.target.value;
         this.setState({term})
         this.fetchYoutubeVids(term);
     }
 
     handleTypeChange = (e) => {
-
         const type = e.target.value;
-
         this.setState({type})
         this.fetchYoutubeVids(undefined, type);
 
@@ -84,12 +72,14 @@ export class Youtube extends Component {
 
     setSelectedVideo = (selectedVideo) => {
 
-        if (this.state.type == "video") {
+        if (this.state.type === "video") {
             this.setState({
                 selectedVideo
             })
         }
         else {
+            var win = window.open(`https://www.youtube.com/playlist?list=${selectedVideo.id.playlistId}`, '_blank');
+            win.focus();
             this.setState({
                 selectedVideo: {}
             })
@@ -121,8 +111,8 @@ export class Youtube extends Component {
                         <div className="col-md-9">
                             {
                                 this.state.selectedVideo && this.state.selectedVideo.id ?
-                                    <VideoPlayer video={this.state.selectedVideo}/> :
-                                    spinner
+                                    <VideoPlayer video={this.state.selectedVideo}/> : null
+
                             }
 
                         </div>

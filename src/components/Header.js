@@ -1,24 +1,21 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 
-export class Header extends Component {
+const Header = () => {
+    return (
 
-    render() {
-        return (
+        <div className="Header">
+            <nav className="site-header sticky-top py-1">
+                <div className="container d-flex flex-column flex-md-row justify-content-between">
+                    <a className="py-2" href="/">
+                        <h4>ReTube</h4>
+                    </a>
+                    <p>Youtube Without Ads</p>
 
-            <div className="Header">
-
-                <nav className="site-header sticky-top py-1">
-                    <div className="container d-flex flex-column flex-md-row justify-content-between">
-                        <a className="py-2" href="/">
-                            <h4>ReTube</h4>
-                        </a>
-
-                    </div>
-                </nav>
-            </div>
-        );
-    }
+                </div>
+            </nav>
+        </div>
+    );
 }
 
 export default Header;

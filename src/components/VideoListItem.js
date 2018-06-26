@@ -1,24 +1,14 @@
 import React from 'react';
 
 
-function VideoListItem(props) {
-    const url = props.video.snippet.thumbnails.medium.url;
-    const title = props.video.snippet.title;
-    const videoId = props.video.id.videoId;
-    let styles = {}
-
-    /*if it is single video not playlist change style */
-    if (videoId) {
-        styles = {
-            "cursor": "pointer",
-        }
-    }
+const VideoListItem = ({video, setSelectedVideo}) => {
+    const url = video.snippet.thumbnails.medium.url;
+    const title = video.snippet.title;
     return (
 
-        <div className="VideoListItem" style={styles}>
+        <div className="VideoListItem">
             <img
-
-                onClick={props.setSelectedVide}
+                onClick={() => setSelectedVideo(video)}
                 src={url}
                 alt={title}/>
             <p>{title}</p>

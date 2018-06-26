@@ -1,25 +1,32 @@
 import React from 'react';
 import {DebounceInput} from 'react-debounce-input';
 
-function SearchBar(props) {
+const SearchBar = ({term, OnUserSearch, type, changeType}) => {
     return (
 
         <div className="SearchBar">
-            <h1>Search: {props.term}</h1>
-            <DebounceInput
-                debounceTimeout={600}
-                onChange={props.OnUserSearch}
-                className={'form-control'}
-                value={props.term}
-                type="text"
-            />
+            <div className="row">
+                <div className="col-md-9">
 
-
-            <input onChange={props.changeType} type="radio" name="type" value="video"
-                   checked={props.type == 'video'}/> video
-            <input onChange={props.changeType} type="radio" name="type" value="playlist"
-                   checked={props.type == 'playlist'}/> playlist
-
+                    <DebounceInput
+                        debounceTimeout={600}
+                        onChange={OnUserSearch}
+                        className={'form-control'}
+                        value={term}
+                        type="text"
+                    />
+                </div>
+                <div className="col-md-3">
+                    <div className="radio">
+                        <label> <input onChange={changeType} type="radio" name="type" value="video"
+                                       checked={type === 'video'}/>Video</label>
+                    </div>
+                    <div className="radio">
+                        <label><input onChange={changeType} type="radio" name="type" value="playlist"
+                                      checked={type === 'playlist'}/>Playlist</label>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }
