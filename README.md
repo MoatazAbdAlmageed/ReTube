@@ -5,7 +5,7 @@
 
 
 ### Demo (plnkr)
-https://next.plnkr.co/plunk/ms5soA9VmtwgHiRz
+https://next.plnkr.co/plunk/WgVT2bESNUyGYVph
 
 
 ### Installation
