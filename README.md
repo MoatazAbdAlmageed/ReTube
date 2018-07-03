@@ -4,9 +4,9 @@
 [![N|ReTube](public/youtube_mockup.png)](ReTube)
 
 
-### Demo
+### Demo (plnkr)
 
-http://vigorous-jang-f322c1.bitballoon.com/
+https://next.plnkr.co/edit/ms5soA9VmtwgHiRz?preview
 ### Installation
 
 
