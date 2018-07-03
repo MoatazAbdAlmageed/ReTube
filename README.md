@@ -5,7 +5,8 @@
 
 
 ### Demo (plnkr)
-https://next.plnkr.co/edit/ms5soA9VmtwgHiRz?preview
+https://next.plnkr.co/plunk/ms5soA9VmtwgHiRz
+
 
 ### Installation
 
